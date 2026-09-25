@@ -155,11 +155,14 @@ test.describe("Rows selecting", () => {
 
         await expect.poll(() => checkbox.count()).toBeGreaterThan(0);
         const checkboxes = await checkbox.all();
+        let checkCounter = 0;
         for (const checkbox of checkboxes) {
             await checkbox.check();
             await expect(checkbox).toBeChecked();
+            await expect(selectedCount).toHaveText(
+                `Вибрано: ${++checkCounter}`,
+            );
         }
-        await expect(selectedCount).toHaveText(`Вибрано: ${checkboxes.length}`);
     });
 
     test("Deselect all rows", async ({ page }) => {
@@ -172,11 +175,16 @@ test.describe("Rows selecting", () => {
 
         await expect.poll(() => checkbox.count()).toBeGreaterThan(0);
         const checkboxes = await checkbox.all();
+        let checkCounter = checkboxes.length;
         for (const checkbox of checkboxes) {
             await checkbox.check();
+        }
+        for (const checkbox of checkboxes) {
             await checkbox.uncheck();
             await expect(checkbox).not.toBeChecked();
+            await expect(selectedCount).toHaveText(
+                `Вибрано: ${--checkCounter}`,
+            );
         }
-        await expect(selectedCount).toHaveText("Вибрано: 0");
     });
 });
