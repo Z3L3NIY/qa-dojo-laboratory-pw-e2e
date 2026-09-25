@@ -1,0 +1,30 @@
+{
+  "name": "qa-dojo-laboratory-pw-e2e",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Z3L3NIY/qa-dojo-laboratory-pw-e2e.git"
+  },
+  "keywords": [],
+  "author": "Serhii Husenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Z3L3NIY/qa-dojo-laboratory-pw-e2e/issues"
+  },
+  "homepage": "https://github.com/Z3L3NIY/qa-dojo-laboratory-pw-e2e#readme",
+  "description": "Playwright learning project.",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.2"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "playwright": "^1.63.0",
+    "playwright-core": "^1.63.0",
+    "undici-types": "^8.9.0"
+  }
+}
